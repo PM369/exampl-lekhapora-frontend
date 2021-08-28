@@ -18,8 +18,10 @@ function Header() {
                         {
                             localStorage.getItem('user-info') ?
                                 <>
+                                    <Link to="/">Product List</Link>
                                     <Link to="/add">Add Product</Link>
                                     <Link to="/update">Update Product</Link>
+                                    <Link to="/search">Search Product</Link>
                                 </>
                                 :
                                 <>
@@ -34,6 +36,7 @@ function Header() {
                         <Nav.Link href="#features">Features</Nav.Link>
                         <Nav.Link href="#pricing">Pricing</Nav.Link> */}
                     </Nav>
+                    {localStorage.getItem('user-info') ?
                     <Nav>
                         <NavDropdown title={user && user.name}>
                         <NavDropdown.Item onClick={logout}>Logout</NavDropdown.Item>
@@ -41,6 +44,8 @@ function Header() {
 
                         </NavDropdown>
                     </Nav>
+                    :null
+                    }
                 </Container>
             </Navbar>
         </div>
